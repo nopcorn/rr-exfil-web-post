@@ -1,7 +1,7 @@
 #!/bin/bash
 
 URL="$1" 
-DATA='$(echo -n "$2" | base64 -w 0)' # make sure data is a single line
+DATA=$(echo -n "$2" | base64 -w 0) # make sure data is a single line
 
 # curl
 if command -v curl &> /dev/null; then
