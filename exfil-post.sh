@@ -12,7 +12,7 @@ elif command -v wget &> /dev/null; then
     wget --method=POST --header="Content-Type: application/json" --body-data="$DATA" "$URL"
 
 # openssl (if https)
-elif [[ -x "$(command -v openssl)" && "$URL" == https* ]] then
+elif [[ -x "$(command -v openssl)" && "$URL" == https* ]]; then
   HOST=$(echo "$URL" | awk -F/ '{print $3}')
   PATH=$(echo "$URL" | sed -e "s|https://$HOST||")
   echo -ne "POST $PATH HTTP/1.1\r\nHost: $HOST\r\nContent-Type: application/json\r\nContent-Length: ${#DATA}\r\nConnection: close\r\n\r\n$DATA" | openssl s_client -connect "$HOST:443" -quiet
